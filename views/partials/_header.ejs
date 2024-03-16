@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">AIRide_</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav">
+      <% if (session && session.userId) { %>
+      <li class="nav-item">
+        <a class="nav-link" href="/user/profile"><img src="<%= session.userImage || '/images/default-profile.jpg' %>" alt="Profile" class="rounded-circle" style="width: 30px; height: 30px;"></a> 
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/auth/logout">Logout</a>
+      </li>
+      <% } else { %>
+      <li class="nav-item">
+        <a class="nav-link" href="/auth/login">Login</a>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</nav>

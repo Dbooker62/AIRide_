@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+<body>
+<%- include('partials/_header.ejs') %>
+<main role="main" class="container mt-4">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+        <a href="/user/profile" class="list-group-item list-group-item-action active">Profile</a>
+        <a href="/user/security" class="list-group-item list-group-item-action">Security</a>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Profile Settings</h4>
+          <form action="/user/update" method="POST">
+            <div class="mb-3">
+              <label for="firstName" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="firstName" name="firstName" value="<%= user.firstName %>" required>
+            </div>
+            <div class="mb-3">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="lastName" name="lastName" value="<%= user.lastName %>" required>
+            </div>
+            <div class="mb-3">
+              <label for="city" class="form-label">City</label>
+              <input type="text" class="form-control" id="city" name="city" value="<%= user.city %>" required>
+            </div>
+            <div class="mb-3">
+              <label for="state" class="form-label">State</label>
+              <input type="text" class="form-control" id="state" name="state" value="<%= user.state %>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<%- include('partials/_footer.ejs') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

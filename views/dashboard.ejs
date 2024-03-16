@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+<body>
+<%- include('partials/_header.ejs') %>
+<main role="main" class="container mt-4">
+  <h2>Dashboard</h2>
+  <div>
+    <a href="/vehicles/add" class="btn btn-primary">Add Vehicle</a>
+  </div>
+  <% if (vehicles.length > 0) { %>
+    <ul>
+      <% vehicles.forEach(vehicle => { %>
+        <li>
+          <%= vehicle.vehicleIdentifier %> - <%= vehicle.make %> <%= vehicle.model %>
+          <a href="/vehicles/location/<%= vehicle._id %>">View Location</a>
+          | 
+          <form action="/vehicles/remove/<%= vehicle._id %>" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-danger">Remove</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No vehicles added yet.</p>
+  <% } %>
+</main>
+</body>
+<%- include('partials/_footer.ejs') %>
+</html>

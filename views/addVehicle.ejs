@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+<body>
+<%- include('partials/_header.ejs') %>
+<main role="main" class="container mt-4">
+  <h2>Add a Vehicle</h2>
+  <form action="/vehicles/add" method="POST">
+    <div class="mb-3">
+      <label for="vehicleIdentifier" class="form-label">Vehicle Identifier (VIN or Custom ID)</label>
+      <input type="text" class="form-control" id="vehicleIdentifier" name="vehicleIdentifier" required>
+    </div>
+    <div class="mb-3">
+      <label for="make" class="form-label">Make</label>
+      <input type="text" class="form-control" id="make" name="make" required>
+    </div>
+    <div class="mb-3">
+      <label for="model" class="form-label">Model</label>
+      <input type="text" class="form-control" id="model" name="model" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Vehicle</button>
+  </form>
+</main>
+<%- include('partials/_footer.ejs') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

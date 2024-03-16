@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+  <body>
+<%- include('partials/_header.ejs') %>
+    <main role="main" class="container mt-4">
+      <div id="map" style="height: 400px;"></div>
+    </main>
+    <script>
+      function initMap() {
+        var vehicleLocation = <%- JSON.stringify(vehicleLocation) %>;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: vehicleLocation
+        });
+        var marker = new google.maps.Marker({
+          position: vehicleLocation,
+          map: map
+        });
+      }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= process.env.GOOGLE_MAPS_API_KEY %>&callback=initMap"></script>
+  </body>
+<%- include('partials/_footer.ejs') %>
+</html>
